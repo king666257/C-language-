@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <stdbool.h>
+
+bool prime(int i) {
+    if (i < 2) return false; 
+    for (int a = 2; a * a <= i; a++)
+{ 
+        if (i % a == 0) {
+            return false; 
+        }
+    }
+    return true;
+}
+
+int sumofnum(int i) {
+    int sum = 0;
+    while (i != 0) {
+        sum = sum+i % 10; 
+        i = i/10; 
+    }
+    return sum; 
+}
+
+void main() {
+    for (int i = 100; i < 1000; i++) {
+        if (prime(i) && prime(sumofnum(i))) {
+            printf("%d\n", i);
+        }
+    }
+    
+}
